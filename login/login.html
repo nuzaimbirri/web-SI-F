@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beasiswa</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- Halaman Utama -->
+  <header>
+    <div class="navbar">
+      <h1>Beasiswa.ID</h1>
+      <button id="loginButton" class="login-btn">Masuk</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Bangun Karirmu Sebagai Developer Profesional</h2>
+      <p>Mulai belajar terarah dengan learning path kami.</p>
+      <button class="primary-btn">Belajar Sekarang</button>
+    </section>
+  </main>
+
+  <!-- Form Login Popup -->
+  <div id="loginPopup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h2>Masuk</h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="primary-btn">Masuk</button>
+        <p><a href="#">Lupa Password?</a></p>
+        <p class="or">atau</p>
+        <button type="button" class="google-btn">Masuk dengan Google</button>
+        <p>Belum punya akun? <a href="#">Daftar</a></p>
+        <p class="terms">
+          Dengan melakukan login, Anda setuju dengan <a href="#">syarat & ketentuan</a> kami.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="loginjs.js"></script>
+</body>
+</html>

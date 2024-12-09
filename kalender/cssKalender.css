@@ -1,0 +1,195 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container1 {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.timeline {
+    position: relative; /* Penting agar ::before bisa relatif terhadap ini */
+    min-height: 10px; /* Sesuaikan tinggi minimum */
+    margin-left: 50px; /* Jarak dari sisi kiri */
+    padding-left: 20px;
+    border-left: 2px solid transparent; /* Untuk referensi visual */
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute; /* Posisi harus absolut relatif terhadap .timeline */
+    width: 2px; /* Lebar garis */
+    background-color: #ccc; /* Warna garis */
+    top: 200px; /* Jarak dari atas */
+    bottom: 100px; /* Jarak dari bawah */
+    left: 50%; /* Pusatkan garis */
+    transform: translateX(-50%);
+    z-index: 0; /* Tetap di belakang elemen konten */
+}
+
+
+
+.timeline-item {
+    padding: 20px 0;
+    position: relative;
+    width: 49%; /* Kurangi sedikit agar ada jarak di kedua sisi */
+    margin: 0 auto; /* Pastikan item selalu di tengah */
+}
+
+.timeline-item:nth-child(odd) {
+    margin-right: auto; /* Ganjil tetap ke kiri */
+    margin-left: 0; /* Jaga jarak kiri */
+    transform: translateX(%); /* Tambahkan ini agar bagian kiri menjauh dari garis */
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: auto; /* Genap tetap ke kanan */
+    margin-right: 0; /* Jaga jarak kanan */
+    transform: translateX(1%); /* Tambahkan ini agar bagian kanan menjauh dari garis */
+}
+
+.timeline-item::before {
+    content: 'event'; /* Ikon kalender dari Material Icons */
+    font-family: 'Material Icons';
+    font-size: 20px; /* Ukuran ikon */
+    color: white; /* Warna ikon */
+    background-color: #00aaff; /* Warna background */
+    border-radius: 50%; /* Membuat background bulat */
+    position: absolute;
+    width: 40px; /* Ukuran lingkaran */
+    height: 40px; /* Ukuran lingkaran */
+    display: flex;
+    align-items: center; /* Menempatkan teks ikon di tengah lingkaran */
+    justify-content: center; /* Menempatkan teks ikon di tengah lingkaran */
+    left: -50px; /* Posisi horizontal di luar kotak konten */
+    top: 50%; /* Posisi vertikal otomatis di tengah */
+    transform: translateY(-50%); /* Memastikan ikon selalu tepat di tengah */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    z-index: 1; /* Supaya di atas garis timeline */
+}
+
+
+
+.timeline-item:nth-child(odd)::before {
+    right: -30px;
+    left: auto; /* Atur ulang agar bulatan pada elemen ganjil tetap di kanan */
+}
+
+.timeline-content {
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-content ul li {
+    margin-bottom: 10px;
+}
+
+.timeline-item.active::before {
+    background-color: #0077cc; /* Warna baru untuk ikon kalender */
+}
+
+.timeline::before {
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.note {
+    font-size: 12px;
+    color: #666;
+}
+
+
+#scrollUpButton {
+    position: fixed;  /* Posisi tetap di layar */
+    bottom: 20px;     /* Jarak 20px dari bawah */
+    right: 20px;      /* Jarak 20px dari kanan */
+    display: none;    /* Tombol tersembunyi secara default */
+    background-color: #164e6ad2;  /* Warna latar tombol */
+    color: white;     /* Warna teks */
+    border: none;     /* Tanpa border */
+    border-radius: 30%; /* Membuat tombol berbentuk bulat */
+    padding: 10px 15px;  /* Ukuran padding tombol */
+    font-size: 18px;    /* Ukuran teks */
+    cursor: pointer;   /* Menampilkan pointer saat mouse diarahkan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    z-index: 1000;      /* Agar tombol tetap di atas konten lainnya */
+    transition: background-color 0.3s;  /* Efek transisi saat tombol dihover */
+}
+
+#scrollUpButton:hover {
+    background-color: #0077cc; /* Warna latar saat hover */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+/* Garis timeline sebelum elemen aktif */
+.timeline::before {
+    background-color: #ffffff; /* Warna default (sebelum aktif) */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Garis timeline setelah elemen aktif */
+.timeline.active::before {
+    background-color: #007af5; /* Warna baru (setelah aktif) */
+}
+
+
+.timeline {
+    position: relative;
+    margin-left: 50px; /* Jarak dari sisi kiri */
+    padding-left: 20px;
+    border-left: px solid #ccc; /* Garis timeline */
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-item.active {
+    border-left: 3px solid #0077cc89; /* Ubah warna garis untuk elemen aktif */
+}

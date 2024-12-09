@@ -1,0 +1,265 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0; /* Hilangkan margin default */
+  padding: 2rem; /* Tambahkan ruang di dalam halaman */
+  background-color: #f5f5f5; /* Contoh warna background */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+ 
+}
+
+/* Header */
+.header {
+  display:flex;
+  justify-content: center; /* Menempatkan elemen di tengah secara horizontal */
+  align-items: center; /* Menempatkan elemen di tengah secara vertikal */
+  flex-direction: column; /* Mengubah arah elemen menjadi kolom */
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Memberi jarak antara logo dan navigasi */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav ul li a:hover {
+  color: #f57c00; /* Warna hover */
+}
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+ 
+}
+
+.gallery-image img{
+ margin-top: 20px;
+ border-radius: 15px;
+ margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin: 20px auto;
+  margin-top: 20px;
+  max-width: 900px;
+  align-items: justify;
+  font-weight: bold;
+  color: #333;
+  
+}
+
+.hero h3{
+  text-align: justify;
+  max-width: 900px;
+  margin: 20px auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.hero p {
+    margin: 20px auto; /* Mengatur margin agar teks berada di tengah */
+    max-width: 900px; /* Membatasi lebar teks untuk estetika */
+    line-height: 1.8; /* Menambahkan tinggi baris untuk kenyamanan membaca */
+    text-align: justify; /* Justifikasi teks */
+}
+
+
+.hero .new-badge {
+  display: inline-block;
+  margin-top: 20px;
+  background: #007bff;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+}
+
+/* Blog Posts Section */
+.blog-posts .container {
+display: flex;
+justify-content: space-between;
+text-align: left;
+gap: 2rem;
+flex-wrap: wrap;
+padding: 2rem; 
+}
+
+
+/* Individual Blog Post */
+.blog-posts .post {
+  width: clamp(300px, 10%, 300px); /* Lebar fleksibel */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.blog-posts .post img {
+  width: 100%; /* Gambar memenuhi lebar */
+  height: auto;
+}
+
+.blog-posts .post h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: rgb(1, 127, 244); /* Warna oranye untuk judul */
+}
+
+.blog-posts .post p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0 1rem;
+}
+
+.blog-posts .post .read-more {
+  display: inline-block;
+  background-color: rgb(43, 146, 241); /* Warna tombol oranye */
+  color: #fff; /* Warna teks putih */
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.blog-posts .post .read-more:hover {
+  background-color: rgb(1, 127, 244); /* Warna oranye gelap untuk efek hover */
+}
+
+/* Styling untuk bagian "Artikel Lainnya" */
+.related-articles {
+margin: 50px auto;
+max-width: 1200px;
+padding: 20px;
+background-color: #f9f9f9; /* Warna latar untuk pembeda */
+border-radius: 10px; /* Melengkungkan sudut bagian */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan bayangan */
+text-align: center; /* Membuat teks heading berada di tengah */
+}
+
+.related-articles h3 {
+font-size: 1.8rem;
+font-weight: bold;
+margin-bottom: 20px;
+color: rgb(0, 116, 205); /* Warna teks heading */
+}
+
+/* Kontainer untuk artikel */
+.articles-container {
+display: flex;
+justify-content: space-between; /* Memberikan jarak antar elemen */
+gap: 20px;
+flex-wrap: wrap; /* Memastikan elemen tetap rapi pada layar kecil */
+}
+
+/* Setiap artikel */
+.article {
+flex: 1 1 calc(33.333% - 20px); /* Mengatur lebar setiap artikel */
+text-decoration: none; /* Menghilangkan garis bawah pada link */
+color: inherit; /* Menjaga warna teks */
+background-color: white; /* Warna latar untuk setiap artikel */
+border-radius: 10px;
+box-shadow: 0 0 9px rgba(41, 53, 65, 0.5);
+overflow: hidden; /* Menjaga gambar dalam radius border */
+transition: transform 0.3s, box-shadow 0.3s; /* Efek hover */
+}
+
+.article:hover {
+transform: scale(1.05); /* Efek zoom saat hover */
+box-shadow: 0 0 20px rgba(1, 127, 244, 0.7); /* Bayangan lebih besar */
+}
+
+/* Gambar dalam artikel */
+.article img {
+width: 100%;
+height: auto;
+display: block;
+}
+
+/* Konten artikel */
+.article-content {
+padding: 15px;
+}
+
+.article-content h4 {
+font-size: 1.4rem;
+font-weight: bold;
+margin: 10px 0;
+color: rgb(20, 116, 205);
+}
+
+.article-content p {
+font-size: 0.9rem;
+color: #666;
+line-height: 1.6;
+}
+
+
+/* Tags */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  background: #ffe0b2;
+  color: #f57c00;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #f9f9f9;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}

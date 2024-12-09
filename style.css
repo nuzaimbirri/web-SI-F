@@ -1,0 +1,250 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Input Search (Penambahan Z-Index dan Styling Tambahan) */
+.banner input {
+    z-index: 100; /* Pastikan elemen ini berada di atas elemen lain */
+    position: relative; /* Aktifkan z-index */
+    background-color: rgb(31, 28, 28); /* Tambahkan warna latar agar kontras */
+    color: black; /* Warna teks agar terlihat */
+    padding: 0.75rem 1rem; /* Tambahkan padding agar nyaman */
+    border: 2px solid #000000; /* Tambahkan border */
+    border-radius: 5px; /* Membuat sudut membulat */
+    width: 100%; /* Sesuaikan lebar */
+    max-width: 300px; /* Batasi maksimal lebar */
+    opacity: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek */
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header .logo {
+    width: 80px;
+    margin-bottom: 0.5rem;
+}
+
+.relative {
+    position: relative;
+    z-index: 0;
+}
+
+.relative {
+    position: relative;
+    z-index: 0;
+}
+
+.bg-cover {
+    position: absolute;
+    z-index: -1; /* Pastikan ini berada di belakang semua elemen */
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* Banner */
+.banner {
+    background: url('fotolamanutama.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.banner-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* Features */
+.features {
+    padding: 3rem 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 1.5rem);
+}
+
+.card img {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+/* Tambahkan hover pada tombol cari */
+#searchButton:hover {
+    background-color: #2a6fb7; /* Ubah warna biru menjadi lebih gelap */
+    cursor: pointer;
+}
+
+/* Gaya untuk menampilkan pesan 'Tidak ada hasil' */
+#searchDropdown li.no-result {
+    color: gray; /* Warna teks abu-abu untuk 'Tidak ada hasil' */
+    font-style: italic;
+    text-align: center;
+    border: none;
+}
+
+/* Dropdown Styling */
+#searchDropdown {
+    background-color: white !important; /* Pastikan latar dropdown putih */
+    color: black !important; /* Tambahkan ini untuk memastikan teks dropdown hitam */
+    max-height: 200px; /* Batas maksimal tinggi */
+    overflow-y: auto; /* Gulir jika melebihi tinggi */
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Membuat dropdown mengikuti lebar input */
+    margin-top: 0.7rem; /* Memberi sedikit jarak antara input dan dropdown */
+    border-radius: 8px; /* Membuat sudut lebih melengkung */
+    transition: all 0.3s ease-in-out; /* Tambahkan efek transisi */
+    position: absolute; /* Pastikan dropdown muncul di atas konten lain */
+    z-index: 10; /* Memastikan dropdown muncul di atas konten lainnya */
+}
+
+/* Dropdown Item */
+#searchDropdown li {
+    color: black !important; /* Tambahkan warna hitam pada teks item */
+    padding: 0.75rem; /* Menambah padding untuk tampilan lebih luas */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#searchDropdown li:hover {
+    background-color: #93c5fd;  /* Warna latar belakang saat hover */
+    cursor: pointer;           /* Menampilkan kursor pointer saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi halus */
+}
+
+#searchDropdown li:active {
+    background-color: #93c5fd;  /* Warna latar belakang saat item aktif */
+    transition: background-color 0.3s ease; /* Efek transisi halus */
+  }
+  
+/* Tambahkan animasi pada dropdown */
+#searchDropdown {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animasi munculnya dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsif untuk tampilan kecil */
+@media (max-width: 768px) {
+    #searchDropdown {
+        max-height: 150px; /* Kurangi tinggi maksimal */
+        font-size: 14px;   /* Ukuran teks lebih kecil */
+    }
+
+    #searchInput {
+        width: calc(100% - 3rem); /* Input memanjang */
+    }
+
+    #searchButton {
+        padding: 0.5rem 1rem; /* Tombol lebih kecil */
+    }
+}
+
+
+
+
+
+
+  

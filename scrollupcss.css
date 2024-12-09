@@ -1,0 +1,20 @@
+#scrollUpButton {
+    position: fixed;  /* Posisi tetap di layar */
+    bottom: 20px;     /* Jarak 20px dari bawah */
+    right: 20px;      /* Jarak 20px dari kanan */
+    display: none;    /* Tombol tersembunyi secara default */
+    background-color: #164e6ad2;  /* Warna latar tombol */
+    color: white;     /* Warna teks */
+    border: none;     /* Tanpa border */
+    border-radius: 30%; /* Membuat tombol berbentuk bulat */
+    padding: 10px 15px;  /* Ukuran padding tombol */
+    font-size: 18px;    /* Ukuran teks */
+    cursor: pointer;   /* Menampilkan pointer saat mouse diarahkan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    z-index: 1000;      /* Agar tombol tetap di atas konten lainnya */
+    transition: background-color 0.3s;  /* Efek transisi saat tombol dihover */
+}
+
+#scrollUpButton:hover {
+    background-color: #0077cc; /* Warna latar saat hover */
+}

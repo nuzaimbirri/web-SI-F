@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEASISWA.KU</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans';
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="relative bg-cover bg-center text-white p-4" style="background-color: black;">
+    <div class="relative z-10 flex justify-between items-center">
+      <!-- Ubah div menjadi a -->
+      <a class="text-2xl font-bold" href="../index.html">BEASISWA.KU</a>
+      <nav class="flex gap-4">
+        <a class="text-white" href="../about/about.html">TENTANG</a>
+        
+        <!-- Dropdown BEASISWA -->
+        <div class="relative">
+          <button id="beasiswaToggle" class="text-white flex items-center">
+            BEASISWA <i class="fas fa-chevron-down ml-2"></i>
+          </button>
+          <ul id="beasiswaMenu" class="absolute left-0 mt-2 bg-gray-800 text-white w-48 shadow-lg rounded hidden">
+            <li><a href="../beasiswas1.html" class="block px-4 py-2 hover:bg-blue-400">BEASISWA S1</a></li>
+            <li><a href="../beasiswas2.html" class="block px-4 py-2 hover:bg-blue-400">BEASISWA S2</a></li>
+            <li><a href="../beasiswas3.html" class="block px-4 py-2 hover:bg-blue-400">BEASISWA S3</a></li>
+          </ul>
+        </div>
+
+        <!-- Dropdown BERITA -->
+        <div class="relative">
+          <button id="beritaToggle" class="text-white flex items-center">
+            BERITA <i class="fas fa-chevron-down ml-2"></i>
+          </button>
+          <ul id="beritaMenu" class="absolute left-0 mt-2 bg-gray-800 text-white w-48 shadow-lg rounded hidden">
+            <li><a href="../berita/berita.html" class="block px-4 py-2 hover:bg-blue-400">INFO</a></li>
+            <li><a href="../berita/berita.html" class="block px-4 py-2 hover:bg-blue-400">TIPS</a></li>
+          </ul>
+        </div>
+
+        <a class="text-white" href="../kalender/kalender.html">KALENDER BEASISWA</a>
+      </nav>
+       <!-- Button untuk membuka login popup -->
+       <button id="loginButton" class="bg-white-400 text-white py-2 px-4 rounded-full hover:bg-white-500">
+        LOGIN
+      </button>
+    </div>
+  </header>
+  
+  <section class="relative h-screen bg-cover bg-center" style="background-image: url('../gambar/fotolamanutama.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+        <h1 class="text-4xl mt-4">Temukan Beasiswa Impianmu</h1>
+        <div class="mt-6 flex relative">
+            <!-- Input Search -->
+            <div class="relative w-full">
+                <input id="searchInput" 
+                       class="py-2 px-4 rounded-l-full border-none w-64"
+                       style="background-color: white; color: black;" 
+                       placeholder="Cari beasiswa" 
+                       type="text" />
+                
+                <!-- Button Search -->
+                <button id="searchButton" 
+                        class="py-2 px-4 bg-blue-400 text-white rounded-r-full">
+                  Cari
+                </button>
+
+                <!-- Dropdown List -->
+                <ul id="searchDropdown" class="absolute bg-white border rounded w-full hidden shadow-lg z-10">
+                    <!-- List item akan ditambahkan secara dinamis melalui JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="searchResult" class="text-center mt-6 text-lg"></div>
+
+  
+  <section id="popularScholarships" class="py-16 bg-gray-100">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Beasiswa Populer</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div id="scholarship1" class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img class="w-full h-48 object-cover" src="gambar/bsi.png" alt="BSI Scholarship 2024">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Bank Syariah Indonesia</h3>
+            <p class="text-gray-500 mb-4">Bank Syariah Indonesia</p>
+            <a id="scholarship1Details" href="#" class="text-blue-400 font-semibold">Lihat Detail</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div id="scholarship2" class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img class="w-full h-48 object-cover" src="gambar/ppa.png" alt="Beasiswa PPA">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Beasiswa PPA</h3>
+            <p class="text-gray-500 mb-4">Kementerian Riset, Teknologi, dan Pendidikan Tinggi Republik Indonesia</p>
+            <a id="scholarship2Details" href="#" class="text-blue-400 font-semibold">Lihat Detail</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div id="scholarship3" class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img class="w-full h-48 object-cover" src="gambar/bca.png" alt="Beasiswa Bakti BCA">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Bank Central Asia (BCA)</h3>
+            <p class="text-gray-500 mb-4">Bank Central Asia (BCA)</p>
+            <a id="scholarship3Details" href="#" class="text-blue-400 font-semibold">Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    
+     </div>
+    </div>
+    <div class="bg-gray-800 text-white py-12">
+     <div class="container mx-auto text-center">
+      <div class="flex justify-center space-x-16 mb-12">
+       <div class="text-left">
+        <h4 class="text-white-500 text-xl">
+         01.
+        </h4>
+        <h3 class="text-2xl">
+         Experience
+        </h3>
+        <p class="text-gray-300">
+         Temukan banyak pengalaman
+        </p>
+       </div>
+       <div class="text-left">
+        <h4 class="text-white-500 text-xl">
+         02.
+        </h4>
+        <h3 class="text-2xl">
+         Education
+        </h3>
+        <p class="text-gray-300">
+         Pengajaran pendidikan kompeten
+        </p>
+       </div>
+       <div class="text-left">
+        <h4 class="text-white-500 text-xl">
+         03.
+        </h4>
+        <h3 class="text-2xl">
+         Certificate
+        </h3>
+        <p class="text-gray-300">
+         Dapatkan sertifikasi
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+
+  <!-- Popup Login -->
+  <div id="loginPopup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h2>Masuk</h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="primary-btn">Masuk</button>
+        <p><a href="#">Lupa Password?</a></p>
+        <p class="or">atau</p>
+        <button type="button" class="google-btn">Masuk dengan Google</button>
+        <p>Belum punya akun? <a href="#">Daftar</a></p>
+        <p class="terms">
+          Dengan melakukan login, Anda setuju dengan <a href="#">syarat & ketentuan</a> kami.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+  
+    <script src="Pencarian.js"></script>
+    <script src="dropdown.js"></script>
+  </body>
+
+  <footer class="bg-black text-white py-8">
+    <div class="container mx-auto text-center">
+     <p class="mt-4">
+      BEASISWA.KU menyediakan informasi beasiswa untuk pelajar Indonesia dalam mempersiapkan studi lanjut baik di dalam negeri maupun di luar negeri.
+     </p>
+     <div class="flex justify-center space-x-4 mt-6">
+      <a href="#">
+       <i class="fab fa-facebook-f text-2xl text-gray-300"></i>
+      </a>
+      <a href="#">
+       <i class="fab fa-twitter text-2xl text-gray-300"></i>
+      </a>
+      <a href="#">
+       <i class="fab fa-instagram text-2xl text-gray-300"></i>
+      </a>
+     </div>
+    </div>
+ </footer>
+ 
+
+ css 
+ /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Input Search (Penambahan Z-Index dan Styling Tambahan) */
+.banner input {
+    z-index: 100; /* Pastikan elemen ini berada di atas elemen lain */
+    position: relative; /* Aktifkan z-index */
+    background-color: rgb(31, 28, 28); /* Tambahkan warna latar agar kontras */
+    color: black; /* Warna teks agar terlihat */
+    padding: 0.75rem 1rem; /* Tambahkan padding agar nyaman */
+    border: 2px solid #000000; /* Tambahkan border */
+    border-radius: 5px; /* Membuat sudut membulat */
+    width: 100%; /* Sesuaikan lebar */
+    max-width: 300px; /* Batasi maksimal lebar */
+    opacity: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek */
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header .logo {
+    width: 80px;
+    margin-bottom: 0.5rem;
+}
+
+.relative {
+    position: relative;
+    z-index: 0;
+}
+
+.relative {
+    position: relative;
+    z-index: 0;
+}
+
+.bg-cover {
+    position: absolute;
+    z-index: -1; /* Pastikan ini berada di belakang semua elemen */
+    width: 100%;
+    height: 100%;
+}
+
+#searchDropdown .li {
+    color: black !important; /* Warna teks hitam */
+}
+
+/* Banner */
+.banner {
+    background: url('fotolamanutama.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.banner-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* Features */
+.features {
+    padding: 3rem 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 1.5rem);
+}
+
+.card img {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+/* Tambahkan hover pada tombol cari */
+#searchButton:hover {
+    background-color: #2a6fb7; /* Ubah warna biru menjadi lebih gelap */
+    cursor: pointer;
+}
+
+/* Gaya untuk menampilkan pesan 'Tidak ada hasil' */
+#searchDropdown li.no-result {
+    color: gray; /* Warna teks abu-abu untuk 'Tidak ada hasil' */
+    font-style: italic;
+    text-align: center;
+    border: none;
+}
+
+/* Dropdown Styling */
+#searchDropdown {
+    background-color: white; /* Pastikan latar dropdown putih */
+    color: black; /* Tambahkan ini untuk memastikan teks dropdown hitam */
+    max-height: 200px; /* Batas maksimal tinggi */
+    overflow-y: auto; /* Gulir jika melebihi tinggi */
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Item */
+#searchDropdown li {
+    color: black !important; /* Tambahkan warna hitam pada teks item */
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#searchDropdown li:hover {
+    background-color: #f0f0f0; /* Warna hover lebih terang */
+}
+
+/* Tambahkan animasi pada dropdown */
+#searchDropdown {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animasi munculnya dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsif untuk tampilan kecil */
+@media (max-width: 768px) {
+    #searchDropdown {
+        max-height: 150px; /* Kurangi tinggi maksimal */
+        font-size: 14px;   /* Ukuran teks lebih kecil */
+    }
+
+    #searchInput {
+        width: calc(100% - 3rem); /* Input memanjang */
+    }
+
+    #searchButton {
+        padding: 0.5rem 1rem; /* Tombol lebih kecil */
+    }
+}
+
+
+const scholarships = [
+  { name: "Beasiswa Unggulan", url: "#unggulan" },
+  { name: "Beasiswa LPDP", url: "#lpdp" },
+  { name: "Beasiswa Djarum", url: "#djarum" },
+  { name: "Beasiswa Pendidikan", url: "#pendidikan" },
+  { name: "Beasiswa S2 Luar Negeri", url: "#s2-luar-negeri" },
+];
+
+// Fungsi pencarian dan render dropdown
+document.getElementById("searchInput").addEventListener("input", function () {
+  const query = this.value.trim().toLowerCase();
+  const dropdown = document.getElementById("searchDropdown");
+
+  // Hapus list lama
+  dropdown.innerHTML = "";
+
+  if (query) {
+      const filteredItems = scholarships.filter(item =>
+          item.name.toLowerCase().includes(query)
+      );
+
+      // Tampilkan hasil jika ada, jika tidak ada tampilkan pesan
+      if (filteredItems.length > 0) {
+          filteredItems.forEach(item => {
+              const li = document.createElement("li");
+              li.textContent = item.name;
+              li.addEventListener("click", function () {
+                  window.location.href = item.url; // Navigasi ke URL
+              });
+              dropdown.appendChild(li);
+          });
+      } else {
+          const li = document.createElement("li");
+          li.textContent = "Tidak ada hasil ditemukan.";
+          li.classList.add("no-result");
+          dropdown.appendChild(li);
+      }
+
+      dropdown.classList.remove("hidden"); // Tampilkan dropdown
+  } else {
+      dropdown.classList.add("hidden"); // Sembunyikan dropdown jika kosong
+  }
+});
+
+// Event untuk tombol "Cari"
+document.getElementById("searchButton").addEventListener("click", function () {
+  const query = document.getElementById("searchInput").value.trim();
+  const resultDiv = document.getElementById("searchResult");
+
+  if (query) {
+      resultDiv.textContent = `Hasil pencarian untuk: "${query}"`;
+  } else {
+      alert("Masukkan kata kunci untuk mencari beasiswa.");
+  }
+});
+
+// Event untuk klik di luar dropdown
+document.addEventListener("click", function (event) {
+  const input = document.getElementById("searchInput");
+  const dropdown = document.getElementById("searchDropdown");
+
+  if (!input.contains(event.target) && !dropdown.contains(event.target)) {
+      dropdown.classList.add("hidden");
+  }
+});
+
+
+// document.getElementById('searchInput').addEventListener('input', function () {
+//   const query = this.value.trim().toLowerCase();
+//   const dropdown = document.getElementById('searchDropdown');
+
+//   // Bersihkan isi dropdown sebelumnya
+//   dropdown.innerHTML = '';
+
+//   // Tampilkan dropdown jika ada pencarian
+//   if (query) {
+//       dropdown.classList.remove('hidden');
+
+//       // Tambahkan daftar item (contoh)
+//       const items = [
+//           { name: 'Beasiswa A', url: 'beasiswa-a.html' },
+//           { name: 'Beasiswa B', url: 'beasiswa-b.html' },
+//           { name: 'Beasiswa C', url: 'beasiswa-c.html' }
+//       ];
+
+//       // Filter item berdasarkan pencarian
+//       const filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
+
+//       // Tambahkan item ke dropdown
+//       filteredItems.forEach(item => {
+//           const li = document.createElement('li');
+//           li.textContent = item.name;
+//           li.addEventListener('click', function () {
+//               window.location.href = item.url; // Navigasi ke URL
+//           });
+//           dropdown.appendChild(li);
+//       });
+//   } else {
+//       dropdown.classList.add('hidden');
+//   }
+// });
+
+// // Tutup dropdown saat klik di luar
+// document.addEventListener('click', function (event) {
+//   const input = document.getElementById('searchInput');
+//   const dropdown = document.getElementById('searchDropdown');
+
+//   if (!input.contains(event.target) && !dropdown.contains(event.target)) {
+//       dropdown.classList.add('hidden');
+//   }
+// });
+
+
+// Fungsi untuk pencarian
+// document.getElementById('searchButton').addEventListener('click', function () {
+//     const query = document.getElementById('searchInput').value.trim(); // Ambil nilai input
+//     if (query) {
+//       const encodedQuery = encodeURIComponent(query); // Encode untuk URL
+//       window.location.href = `beasiswas1.html?search=${encodedQuery}`; // Ganti URL sesuai laman tujuan Anda
+//     } else {
+//       alert("Masukkan kata kunci untuk mencari beasiswa.");
+//     }
+//   });
+  
+//   // Tambahkan event listener untuk input pencarian agar tetap responsif
+//   document.getElementById('searchInput').addEventListener('focus', function () {
+//     this.style.outline = '2px solid #fff'; // Highlight saat input aktif
+//   });
+  
+//   document.getElementById('searchInput').addEventListener('blur', function () {
+//     this.style.outline = 'none'; // Hapus highlight saat input tidak aktif
+//   });
+
+  
